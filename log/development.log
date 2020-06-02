@@ -1,0 +1,160 @@
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (118.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (133.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200602124057)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200602124057_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200602124057"]]
+  ↳ bin/rails:9
+  [1m[35m (107.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-02 12:41:09.763022"], ["updated_at", "2020-06-02 12:41:09.763022"]]
+  ↳ bin/rails:9
+  [1m[35m (79.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "precious"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "precious"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "precious"], ["created_at", "2020-06-02 13:10:00.432972"], ["updated_at", "2020-06-02 13:10:00.432972"]]
+  [1m[35m (167.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePosts (20200602131131)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200602131131_create_posts.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20200602131131_create_posts.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  ↳ db/migrate/20200602131131_create_posts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200602131131"]]
+  ↳ bin/rails:9
+  [1m[35m (183.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPost Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "hello"], ["LIMIT", 1]]
+  [1m[36mPost Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."body" = ? LIMIT ?[0m  [["body", "what"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "grom"], ["LIMIT", 1]]
+  [1m[36mPost Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."body" = ? LIMIT ?[0m  [["body", "unseen"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."title" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."body" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."title" = ? LIMIT ?[0m  [["title", "grom"], ["LIMIT", 1]]
+  [1m[36mPost Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."body" = ? LIMIT ?[0m  [["body", "unseen"], ["LIMIT", 1]]
+  [1m[36mPost Create (4.8ms)[0m  [1m[32mINSERT INTO "posts" ("id", "title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["title", "grom"], ["body", "unseen"], ["user_id", 1], ["created_at", "2020-06-02 13:23:41.735910"], ["updated_at", "2020-06-02 13:23:41.735910"]]
+  [1m[35m (77.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20200602132654)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200602132654_create_comments.rb:3
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" varchar, "user_id" integer, "post_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+)[0m
+  ↳ db/migrate/20200602132654_create_comments.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/migrate/20200602132654_create_comments.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  ↳ db/migrate/20200602132654_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200602132654"]]
+  ↳ bin/rails:9
+  [1m[35m (186.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "louis"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "louis"], ["created_at", "2020-06-02 13:37:38.561619"], ["updated_at", "2020-06-02 13:37:38.561619"]]
+  [1m[35m (228.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = ? AND "comments"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Create (1.4ms)[0m  [1m[32mINSERT INTO "comments" ("id", "comment", "user_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["comment", "i love grom"], ["user_id", 2], ["post_id", 1], ["created_at", "2020-06-02 14:38:46.189186"], ["updated_at", "2020-06-02 14:38:46.189186"]]
+  [1m[35m (93.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" ASC LIMIT ?[0m  [["post_id", 1], ["LIMIT", 1]]
