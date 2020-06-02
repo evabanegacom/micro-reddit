@@ -10,6 +10,13 @@ Precious udegbue
 # udegbue69@gmail.com
 
 built mainly with my rails console
+A micro-redditt concept
+Using my rails console to make records
+making posts
+creating users with names only
+posts with title and body
+comments with comment only
+
 
 Things you may want to cover:
 
