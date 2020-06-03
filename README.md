@@ -1,39 +1,79 @@
-# micro-redditt
+<!--
+*** Thanks for checking out this README Template. If you have a suggestion that would
+*** make this better, please fork the repo and create a pull request or simply open
+*** an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-This is a project of building with active records
-trying to emulate the concept of micro reddit's posting and commenting methods
-It focuses mainly on using your consoles not necessarily your web interface.
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+Building with Active Record -- [Micro_Reddit]
+This project is part of the Microverse curriculum in Ruby on Rails module!
 
-written by me 
-Precious udegbue
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-# udegbue69@gmail.com
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+* [License](#license)
 
-built mainly with my rails console
-A micro-redditt concept
-Using my rails console to make records
-making posts
-creating users with names only
-posts with title and body
-comments with comment only
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+This project is about building an application similar to Reddit (called Micro-Reddit) where a user can create a post and add comments to it. It is based mainly on the active record, models, and associations to the tests, meaning no user interface has been added.
+
+<!-- INSTALLATION -->
+## Installation
+
+To have this app on your pc, you need to:
+* have Ruby & Ruby on Rails installed in your computer
+* [download](git@github.com:karthi07/micro-reddit.git) or clone this repo:
+  - Clone with SSH:
+  ```
+    git@github.com:evabanegacom/micro-reddit.git
+  ```
+  - Clone with HTTPS
+  ```
+    https://github.com/evabanegacom/micro-reddit.git
+  ```
+* Open the terminal inside the clone directory and run the bundler:-
+  - ```$ bundler install```
+* run rails db:migrate. This creates the database with the corresponding tables, columns and associations:-
+  - ```$ rails db:migrate```
+* You can test the database by running:-
+  - ```$ rails console```
+
+### Built With
+This project was built using these technologies.
+* Ruby & Ruby on Rails
+* SQLite
+* Rubocop
+* Stickler
+* VsCode
+
+<!-- CONTACT -->
+## Contributors
+
+👤 **Admin 1** 
 
 
-Things you may want to cover:
+👤 **Precious**
 
-* Ruby version
+- GitHub: [@Precious](https://github.com/evabanegacom)
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Microverse](https://www.microverse.org/)
+* [The Odin Project](https://www.theodinproject.com/)
+* [Ruby Documentation](https://www.ruby-lang.org/en/documentation/)
+* [Ruby on Rails](https://rubyonrails.org/)
